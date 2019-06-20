@@ -1,5 +1,21 @@
-<label>
-  Movie Title:
-  <input type="text" [formControl]="title"/>
-</label>
-<button (click)="search()">Search</button>
+
+<div>
+
+<form>
+  <mat-form-field
+  color="primary"
+  appearance="outline">
+    <mat-label>Search</mat-label>
+    <input matInput
+           type="search"
+           [formControl]="title"
+           placeholder="Search"/>
+  </mat-form-field>
+</form>
+<button mat-flat-button
+        color="primary"
+        (click)="search()">
+  Search
+</button>
+
+</div>
