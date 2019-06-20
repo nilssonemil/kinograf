@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-title>{{ movie.Title }}</mat-card-title>
+
+  <mat-card-content>
+    <p>Year: <span>{{ movie.Year }}</span></p>
+    <p>Type: <span>{{ movie.Type }}</span></p>
+  </mat-card-content>
+
+  <img mat-card-image src="{{movie.Poster}}" alt="..."/>
+
+  <mat-card-footer>
+    IMDb ID: <span>{{ movie.imdbID }}</span>
+  </mat-card-footer>
+</mat-card>

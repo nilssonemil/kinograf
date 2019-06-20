@@ -1,9 +1,7 @@
-<ul>
-  <li *ngFor="let movie of movies">
-    <p>{{ movie.Poster }}</p>
-    <p>{{ movie.Title }}</p>
-    <p>{{ movie.Type }}</p>
-    <p>{{ movie.Year }}</p>
-    <p>{{ movie.imdbID }}</p>
-  </li>
-</ul>
+<div fxLayout="row" fxFlex.md="70" class="card-deck-container" mat-elevation-z4>
+  <div fxFlex *ngFor="let movie of movies" class="card-item">
+    <app-movie
+      [movie]="movie">
+    </app-movie>
+  </div>
+</div>

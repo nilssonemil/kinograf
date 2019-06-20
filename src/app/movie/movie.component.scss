@@ -1,0 +1,17 @@
+mat-card {
+    max-height: 600px;
+    min-height: 600px;
+
+    background-color: #fff;
+    color: #888;
+
+    mat-card-title {
+        max-height: 60px;
+        min-height: 60px;
+    }
+
+    img {
+        max-height: 400px;
+        min-height: 400px;
+    }
+}
