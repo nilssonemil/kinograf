@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnChanges, OnInit, Input, SimpleChanges } from '@angular/core';
 import { Movie } from '../movie'
 
 @Component({
@@ -6,7 +6,7 @@ import { Movie } from '../movie'
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.scss']
 })
-export class MovieListComponent implements OnInit {
+export class MovieListComponent implements OnChanges, OnInit {
 
   @Input() selectedMovie?: Movie
 
@@ -15,6 +15,10 @@ export class MovieListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges(_changes: SimpleChanges) {
+    this.selectedMovie = null
   }
 
   onMovieClick(movie: Movie) {
