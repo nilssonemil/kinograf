@@ -16,6 +16,7 @@ import { SearchComponent } from './search/search.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { SearchTitleComponent } from './search-title/search-title.component';
 import { MovieComponent } from './movie/movie.component';
+import { ElevationDirective } from './elevation.directive';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { MovieComponent } from './movie/movie.component';
     MovieListComponent,
     SearchTitleComponent,
     MovieComponent,
+    ElevationDirective,
   ],
   imports: [
     BrowserModule,
