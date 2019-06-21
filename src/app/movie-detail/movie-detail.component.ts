@@ -4,6 +4,8 @@ import {
   OnInit,
   Input,
   SimpleChanges,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 import { Movie } from '../movie';
 import { IMDbService } from '../imdb.service';
@@ -17,6 +19,7 @@ export class MovieDetailComponent implements OnChanges, OnInit {
 
   @Input() movie: Movie
   @Input() hidden: boolean
+  @Output() hide = new EventEmitter<boolean>()
 
   constructor(private imdb: IMDbService) { }
 
@@ -30,5 +33,10 @@ export class MovieDetailComponent implements OnChanges, OnInit {
 
   hasWebsite(): boolean {
     return this.movie.Website != null && this.movie.Website != "N/A"
+  }
+
+  back() {
+    this.hide.emit(true)
+    this.hidden = true
   }
 }

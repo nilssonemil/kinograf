@@ -24,4 +24,8 @@ export class MovieListComponent implements OnInit {
   movieSelected(): boolean {
     return this.selectedMovie != null
   }
+
+  deselectMovie(_hide: boolean) {
+    this.selectedMovie = null
+  }
 }

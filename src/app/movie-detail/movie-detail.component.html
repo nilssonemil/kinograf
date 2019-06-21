@@ -6,6 +6,13 @@
 
   <a *ngIf="hasWebsite()" href="{{movie.Website}}">{{ movie.Website }}</a>
 
+  <button
+    (click)="back()"
+    mat-button
+    color="accent">
+    <mat-icon aria-hidden="false">arrow_back</mat-icon>
+  </button>
+
   <app-rating-list
     [ratings]="movie.Ratings"
     [imdbID]="movie.imdbID">

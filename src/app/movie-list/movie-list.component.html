@@ -14,5 +14,6 @@
 
 <app-movie-detail
   [hidden]="movieSelected()"
-  [movie]="selectedMovie">
+  [movie]="selectedMovie"
+  (hide)="deselectMovie($event)">
 </app-movie-detail>
