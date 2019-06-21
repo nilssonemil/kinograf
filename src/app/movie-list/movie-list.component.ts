@@ -9,6 +9,8 @@ import { SearchService } from '../search.service';
 })
 export class MovieListComponent implements OnInit {
 
+  selectedMovie?: Movie
+
   @Input() movies: Movie[]
 
 
