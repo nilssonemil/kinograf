@@ -34,7 +34,7 @@ export class MovieDatabaseService {
   }
 
   searchMovie(id: string): Observable<Movie> {
-    const idUrl = this.BASE_URL + "i=" + id
+    const idUrl = this.BASE_URL + "i=" + id + "&plot=full"
     console.debug(idUrl)
     return this.http.get<Movie>(idUrl)
   }

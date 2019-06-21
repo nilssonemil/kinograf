@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Movie } from '../movie'
-import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-movie-list',
@@ -9,23 +8,20 @@ import { SearchService } from '../search.service';
 })
 export class MovieListComponent implements OnInit {
 
-  selectedMovie?: Movie
+  @Input() selectedMovie?: Movie
 
   @Input() movies: Movie[]
 
-
-  constructor(private searchService: SearchService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  onMovieClick(movieId: string) {
-    this.searchService.searchMovie(movieId).subscribe(
-      data => {
-        console.debug(data)
-        this.selectedMovie = data
-      },
-      error => console.error(error)
-    )
+  onMovieClick(movie: Movie) {
+    this.selectedMovie = movie
+  }
+
+  movieSelected(): boolean {
+    return this.selectedMovie != null
   }
 }

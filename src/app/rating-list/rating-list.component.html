@@ -1,0 +1,8 @@
+<mat-list class="horizontal">
+  <mat-list-item *ngFor="let rating of ratings">
+    <app-rating
+      [rating]="rating"
+      [imdbID]="isIMDbRating(rating) ? imdbID : null">
+    </app-rating>
+  </mat-list-item>
+</mat-list>

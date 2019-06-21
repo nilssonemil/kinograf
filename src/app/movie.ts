@@ -10,7 +10,7 @@ export interface Movie {
     Genre: string,
     Language: string,
     Metascore: string,
-    Plost: string,
+    Plot: string,
     Poster: string,
     Production: string,
     Rated: string,

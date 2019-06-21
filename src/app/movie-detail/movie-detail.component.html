@@ -1,0 +1,38 @@
+<div *ngIf="!hidden">
+  <h1>{{ movie.Title }}</h1>
+  <p>{{ movie.Genre }}</p>
+  <p>Starring: {{ movie.Actors }}</p>
+  <p>Directed by: {{ movie.Director }}</p>
+
+  <a *ngIf="hasWebsite()" href="{{movie.Website}}">{{ movie.Website }}</a>
+
+  <app-rating-list
+    [ratings]="movie.Ratings"
+    [imdbID]="movie.imdbID">
+  </app-rating-list>
+
+  <mat-grid-list [cols]="3">
+    <mat-grid-tile>
+      <img src="{{movie.Poster}}"/>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <p>{{ movie.Plot }}</p>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-list>
+        <mat-list-item>Length: {{ movie.Runtime }}</mat-list-item>
+        <mat-list-item>PG Rating: {{ movie.Rated }}</mat-list-item>
+        <mat-list-item>Writers: {{ movie.Writer }}</mat-list-item>
+        <mat-list-item>Production: {{ movie.Production }}</mat-list-item>
+        <mat-list-item>Language: {{ movie.Language }}</mat-list-item>
+        <mat-list-item>Released: {{ movie.Released }}</mat-list-item>
+        <mat-list-item>Country: {{ movie.Country }}</mat-list-item>
+        <mat-list-item>DVD: {{ movie.DVD }}</mat-list-item>
+        <mat-list-item>Awards won: {{ movie.Awards }}</mat-list-item>
+        <mat-list-item>Box office: {{ movie.BoxOffice }}</mat-list-item>
+    </mat-list>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</div>
