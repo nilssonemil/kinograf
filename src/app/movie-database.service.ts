@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SearchResult } from './search-result';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { Movie } from './movie';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +14,28 @@ export class MovieDatabaseService {
 
   constructor(private http: HttpClient) { }
 
-  searchTitleQuery(title: string): Observable<SearchResult> {
+  searchTitle(title: string): Observable<Movie[]> {
     const searchUrl = this.BASE_URL + "s=" + title
     console.debug(searchUrl)
-    return this.http.get<SearchResult>(searchUrl)
+
+    let movies: Movie[] = []
+
+    this.http.get<SearchResult>(searchUrl).subscribe(
+      searchResult => {
+        searchResult.Search.forEach(
+          (movie: Movie) => {
+            this.searchMovie(movie.imdbID).subscribe(
+              movie => movies.push(movie)
+            )
+          });
+      }
+    )
+    return of(movies)
+  }
+
+  searchMovie(id: string): Observable<Movie> {
+    const idUrl = this.BASE_URL + "i=" + id
+    console.debug(idUrl)
+    return this.http.get<Movie>(idUrl)
   }
 }
