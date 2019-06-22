@@ -17,7 +17,7 @@ export class RatingListComponent implements OnInit {
   }
 
   isIMDbRating(rating: Rating): boolean {
-    return rating.Source == "Internet Movie Database"
+    return rating.source == "Internet Movie Database"
   }
 
 }

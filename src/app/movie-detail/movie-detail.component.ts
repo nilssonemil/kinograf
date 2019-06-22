@@ -32,7 +32,7 @@ export class MovieDetailComponent implements OnChanges, OnInit {
   }
 
   hasWebsite(): boolean {
-    return this.movie.Website != null && this.movie.Website != "N/A"
+    return this.movie.website != null && this.movie.website != "N/A"
   }
 
   back() {

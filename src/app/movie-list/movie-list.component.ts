@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnInit, Input, SimpleChanges } from '@angular/core';
 import { Movie } from '../movie'
+import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-movie-list',
@@ -12,7 +13,7 @@ export class MovieListComponent implements OnChanges, OnInit {
 
   @Input() movies: Movie[]
 
-  constructor() { }
+  constructor(private search: SearchService) { }
 
   ngOnInit() {
   }
@@ -22,7 +23,10 @@ export class MovieListComponent implements OnChanges, OnInit {
   }
 
   onMovieClick(movie: Movie) {
-    this.selectedMovie = movie
+    this.search.searchMovie(movie.imdb_id).subscribe(
+      movie => this.selectedMovie = movie,
+      error => console.error(error)
+    )
   }
 
   movieSelected(): boolean {

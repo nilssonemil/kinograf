@@ -20,6 +20,7 @@ import { ElevationDirective } from './elevation.directive';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { RatingListComponent } from './rating-list/rating-list.component';
 import { RatingComponent } from './rating/rating.component';
+import { GraphQLModule } from './graphql.module';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { RatingComponent } from './rating/rating.component';
     MatInputModule,
     MatListModule,
     ReactiveFormsModule,
+    GraphQLModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

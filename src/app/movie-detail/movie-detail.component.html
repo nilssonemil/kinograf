@@ -1,10 +1,10 @@
 <div *ngIf="!hidden">
-  <h1>{{ movie.Title }}</h1>
-  <p>{{ movie.Genre }}</p>
-  <p>Starring: {{ movie.Actors }}</p>
-  <p>Directed by: {{ movie.Director }}</p>
+  <h1>{{ movie.title }}</h1>
+  <p>{{ movie.genre }}</p>
+  <p>Starring: {{ movie.actors }}</p>
+  <p>Directed by: {{ movie.director }}</p>
 
-  <a *ngIf="hasWebsite()" href="{{movie.Website}}">{{ movie.Website }}</a>
+  <a *ngIf="hasWebsite()" href="{{movie.website}}">{{ movie.website }}</a>
 
   <button
     (click)="back()"
@@ -14,31 +14,30 @@
   </button>
 
   <app-rating-list
-    [ratings]="movie.Ratings"
-    [imdbID]="movie.imdbID">
+    [ratings]="movie.ratings"
+    [imdbID]="movie.imdb_id">
   </app-rating-list>
 
   <mat-grid-list [cols]="3">
     <mat-grid-tile>
-      <img src="{{movie.Poster}}"/>
+      <img src="{{movie.poster}}"/>
     </mat-grid-tile>
     <mat-grid-tile>
-      <p>{{ movie.Plot }}</p>
+      <p>{{ movie.plot }}</p>
     </mat-grid-tile>
     <mat-grid-tile>
       <mat-list>
-        <mat-list-item>Length: {{ movie.Runtime }}</mat-list-item>
-        <mat-list-item>PG Rating: {{ movie.Rated }}</mat-list-item>
-        <mat-list-item>Writers: {{ movie.Writer }}</mat-list-item>
-        <mat-list-item>Production: {{ movie.Production }}</mat-list-item>
-        <mat-list-item>Language: {{ movie.Language }}</mat-list-item>
-        <mat-list-item>Released: {{ movie.Released }}</mat-list-item>
-        <mat-list-item>Country: {{ movie.Country }}</mat-list-item>
-        <mat-list-item>DVD: {{ movie.DVD }}</mat-list-item>
-        <mat-list-item>Awards won: {{ movie.Awards }}</mat-list-item>
-        <mat-list-item>Box office: {{ movie.BoxOffice }}</mat-list-item>
-    </mat-list>
-
+        <mat-list-item>Length: {{ movie.runtime }}</mat-list-item>
+        <mat-list-item>PG Rating: {{ movie.rated }}</mat-list-item>
+        <mat-list-item>Writers: {{ movie.writer }}</mat-list-item>
+        <mat-list-item>Production: {{ movie.production }}</mat-list-item>
+        <mat-list-item>Language: {{ movie.language }}</mat-list-item>
+        <mat-list-item>Released: {{ movie.released }}</mat-list-item>
+        <mat-list-item>Country: {{ movie.country }}</mat-list-item>
+        <mat-list-item>DVD: {{ movie.dvd }}</mat-list-item>
+        <mat-list-item>Awards won: {{ movie.awards }}</mat-list-item>
+        <mat-list-item>Box office: {{ movie.box_office }}</mat-list-item>
+      </mat-list>
     </mat-grid-tile>
   </mat-grid-list>
 
