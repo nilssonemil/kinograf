@@ -23,7 +23,7 @@ export class MovieListComponent implements OnChanges, OnInit {
   }
 
   onMovieClick(movie: Movie) {
-    this.search.searchMovie(movie.imdb_id).subscribe(
+    this.search.searchId(movie.imdb_id).subscribe(
       movie => this.selectedMovie = movie,
       error => console.error(error)
     )
