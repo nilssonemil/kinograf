@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <div class="actions">
+    <mat-icon *ngIf="isLoggedIn">person</mat-icon>
+      <mat-icon matPrefix>search</mat-icon>
+      <input matInput appHideFocusedPlaceholder placeholder="Search"/>
+  </div>
+
+  <div>
+    <h1><a routerLink="/">kinograf</a></h1>
+  </div>
+
+  <div class="buttons">
+    <a mat-raised-button *ngIf="!isLoggedIn" routerLink="/login">login</a>
+    <a mat-raised-button *ngIf="!isLoggedIn" routerLink="/register">register</a>
+  </div>
+</mat-toolbar>

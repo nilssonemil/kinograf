@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatCardModule } from '@angular/material/card'
 import { MatButtonModule } from '@angular/material/button'
 import { MatInputModule } from '@angular/material/input'
+import { MatToolbarModule } from '@angular/material/toolbar'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
@@ -27,6 +28,8 @@ import { URLInterceptor } from './urlinterceptor';
 import { RegisterComponent } from './register/register.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProfileComponent } from './profile/profile.component';
+import { MenuBarComponent } from './menu-bar/menu-bar.component';
+import { HideFocusedPlaceholderDirective } from './hide-focused-placeholder.directive';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,8 @@ import { ProfileComponent } from './profile/profile.component';
     RegisterComponent,
     PageNotFoundComponent,
     ProfileComponent,
+    MenuBarComponent,
+    HideFocusedPlaceholderDirective,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +61,7 @@ import { ProfileComponent } from './profile/profile.component';
     MatGridListModule,
     MatIconModule,
     MatInputModule,
+    MatToolbarModule,
     MatListModule,
     ReactiveFormsModule,
     GraphQLModule,
