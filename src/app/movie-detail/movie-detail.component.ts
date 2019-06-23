@@ -1,34 +1,37 @@
 import {
   Component,
-  OnChanges,
   OnInit,
   Input,
-  SimpleChanges,
-  Output,
-  EventEmitter,
 } from '@angular/core';
 import { Movie } from '../movie';
-import { IMDbService } from '../imdb.service';
+import { Location } from '@angular/common';
+import { SearchService } from '../search.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-movie-detail',
   templateUrl: './movie-detail.component.html',
   styleUrls: ['./movie-detail.component.scss']
 })
-export class MovieDetailComponent implements OnChanges, OnInit {
+export class MovieDetailComponent implements OnInit {
 
   @Input() movie: Movie
-  @Input() hidden: boolean
-  @Output() hide = new EventEmitter<boolean>()
 
-  constructor(private imdb: IMDbService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private location: Location,
+    private searchService: SearchService,
+  ) { }
 
-  ngOnInit() {}
-
-  ngOnChanges(changes: SimpleChanges) {
-    this.movie = changes["movie"].currentValue
-
-    this.hidden = this.movie == null
+  ngOnInit() {
+    this.searchService.searchId(
+      this.route.snapshot.paramMap.get('id')).subscribe(
+        movie => this.movie = movie,
+        error => {
+          console.log(error)
+          this.location.back()
+        }
+    )
   }
 
   hasWebsite(): boolean {
@@ -36,7 +39,6 @@ export class MovieDetailComponent implements OnChanges, OnInit {
   }
 
   back() {
-    this.hide.emit(true)
-    this.hidden = true
+    this.location.back()
   }
 }
