@@ -13,7 +13,9 @@ export class MovieListComponent implements OnChanges, OnInit {
 
   @Input() movies: Movie[]
 
-  constructor(private search: SearchService) { }
+  constructor(private search: SearchService) {
+    this.movies = []
+  }
 
   ngOnInit() {
   }

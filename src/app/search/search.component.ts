@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../search.service';
 import { Movie } from '../movie';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-search',
@@ -11,15 +13,24 @@ export class SearchComponent implements OnInit {
 
   searchResults: Movie[]
 
-  constructor(private searchService: SearchService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private searchService: SearchService,
+    private location: Location,
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    const query = this.route.snapshot.paramMap.get('query')
+    if (query != null) {
+      this.search(query)
+    }
+  }
 
-  onSearch(title: string) {
-    this.searchService.searchTitle(title).subscribe(
+  search(query: string) {
+    this.searchService.searchTitle(query).subscribe(
       data => {
-        console.debug(data)
         this.searchResults = data
+        this.location.replaceState(`/search/${query}`)
       },
       error => console.error(error)
     )

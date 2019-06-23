@@ -10,28 +10,35 @@ import { ProfileComponent } from './profile/profile.component';
 const routes: Routes = [
   {
     path: '',
-    component: SearchComponent,
+    pathMatch: 'full',
+    redirectTo: '/search',
   },
   {
     path: 'login',
+    pathMatch: 'full',
     component: LoginComponent,
   },
   {
     path: 'register',
+    pathMatch: 'full',
     component: RegisterComponent,
-  },
-  {
-    path: 'movie/:id',
-    component: MovieDetailComponent
-  },
-  {
-    // TODO: Append search query to url
-    path: 'search',
-    component: SearchComponent,
   },
   {
     path: 'user/:name',
     component: ProfileComponent,
+  },
+  {
+    path: 'search',
+    pathMatch: 'full',
+    component: SearchComponent,
+  },
+  {
+    path: 'search/:query',
+    component: SearchComponent,
+  },
+  {
+    path: 'movie/:id',
+    component: MovieDetailComponent
   },
   {
     path: '*',

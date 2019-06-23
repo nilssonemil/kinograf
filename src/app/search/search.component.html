@@ -1,6 +1,8 @@
-<app-search-title
-  (searched)="onSearch($event)">
-</app-search-title>
-<app-movie-list
-  [movies]="searchResults">
-</app-movie-list>
+<div class="container">
+  <app-search-title
+    (searched)="search($event)">
+  </app-search-title>
+  <app-movie-list
+    [movies]="searchResults">
+  </app-movie-list>
+</div>
