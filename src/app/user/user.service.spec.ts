@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { IMDbService } from './imdb.service';
+import { UserService } from './user.service';
 
-describe('ImdbService', () => {
+describe('UserService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: IMDbService = TestBed.get(IMDbService);
+    const service: UserService = TestBed.get(UserService);
     expect(service).toBeTruthy();
   });
 });

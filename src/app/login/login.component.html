@@ -1,0 +1,38 @@
+<mat-card class="container">
+  <mat-card-title>Login</mat-card-title>
+
+  <mat-card-content>
+    <form>
+      <mat-form-field>
+        <input #username
+               matInput
+               autofocus
+               placeholder="Username"
+               autocomplete="username"/>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput
+               placeholder="Password"
+               type="password"
+               autocomplete="current-password"
+               [formControl]="password"/>
+      </mat-form-field>
+      <mat-error *ngIf="errorMessage != null">{{ errorMessage }}</mat-error>
+
+      <div class="link-container">
+        <a mat-button color="accent" routerLink="/register">
+          Not yet registered?
+        </a>
+        <a mat-button color="accent" disabled routerLink="/clumsy">
+          Forgotten password?
+        </a>
+      </div>
+
+      <div class="button-container">
+        <button mat-raised-button appElevation color="primary"
+                (click)="login()">Login</button>
+        <button mat-raised-button appElevation color="warn">Cancel</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

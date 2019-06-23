@@ -1,0 +1,49 @@
+<mat-card class="container">
+  <mat-card-title>Register</mat-card-title>
+
+  <mat-card-content>
+    <form>
+      <mat-form-field>
+        <input
+          matInput
+          autofocus
+          placeholder="Username"
+          autocomplete="username"
+          [formControl]="username"/>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Password"
+          type="password"
+          autocomplete="new-password"
+          [formControl]="password"/>
+      </mat-form-field>
+
+      <mat-error *ngIf="errorMessage != null">{{ errorMessage }}</mat-error>
+
+      <div class="link-container">
+        <a mat-button color="accent" routerLink="/login">
+          Already a member?
+        </a>
+      </div>
+
+      <div class="button-container">
+        <button
+          mat-raised-button
+          appElevation
+          color="primary"
+          (click)="register()">
+          Register
+        </button>
+        <button
+          mat-raised-button
+          appElevation
+          color="warn"
+          (click)="cancel()">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Movie } from '../movie';
@@ -32,6 +32,10 @@ export class OMDbService {
     return this.http.get<OMDbMovie>(
       this.OMDB_BASE_URL + "i=" + id + "&plot=full").pipe(
         map((movie: OMDbMovie) => this.normalizeMovie(movie as OMDbMovie)))
+  }
+
+  isOMDbRequest(req: HttpRequest<any>): boolean {
+    return req.url.startsWith(this.OMDB_BASE_URL)
   }
 
   normalizeMovie(omdbMovie: OMDbMovie): Movie {

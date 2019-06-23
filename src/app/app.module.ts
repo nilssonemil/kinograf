@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MatListModule } from '@angular/material/list'
 import { MatFormFieldModule } from '@angular/material/form-field'
@@ -21,6 +21,12 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { RatingListComponent } from './rating-list/rating-list.component';
 import { RatingComponent } from './rating/rating.component';
 import { GraphQLModule } from './graphql.module';
+import { AuthInterceptor } from './authentication/auth-interceptor';
+import { LoginComponent } from './login/login.component';
+import { URLInterceptor } from './urlinterceptor';
+import { RegisterComponent } from './register/register.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +39,10 @@ import { GraphQLModule } from './graphql.module';
     MovieDetailComponent,
     RatingListComponent,
     RatingComponent,
+    LoginComponent,
+    RegisterComponent,
+    PageNotFoundComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +60,18 @@ import { GraphQLModule } from './graphql.module';
     ReactiveFormsModule,
     GraphQLModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: URLInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
