@@ -1,24 +1,30 @@
 .mat-toolbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: [first] 35% auto [last] 30%;
 
+    .title {
+        margin: auto;
+        text-align: center;
 
-    & > div h1 a {
-        text-decoration: none;
-        color: #fff;
+        h1 a {
+            text-decoration: none;
+            color: #fff;
+        }
+    }
+
+    .actions, .buttons {
+        display: flex;
     }
 
     .actions {
-        & > * {
-            margin: 5px;
-        }
-
+        justify-content: flex-end;
         input {
+            max-width: 200px;
+
             background: rgba(0, 0, 0, .10);
             border-radius: 20px;
-            padding: 0px 15px;
-            box-sizing: border-box;
+
+            padding: 0 15px;
 
             color: #fff;
             font-size: 0.9em;
@@ -30,6 +36,8 @@
     }
 
     .buttons {
+        justify-content: flex-start;
+        align-items: flex-start;
         & > * {
             margin: 10px;
         }
