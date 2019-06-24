@@ -1,12 +1,18 @@
-<div class="card-deck-container"
-     *ngIf="movies != null && movies.length != 0"
-     fxLayout="row"
-     fxFlex.md="70"
-     mat-elevation-z4>
-  <div fxFlex *ngFor="let movie of movies" class="card-item">
-    <app-movie
-      (click)="onMovieClick(movie)"
-      [movie]="movie">
-    </app-movie>
+<div class="container">
+  <div class="no-movies"
+       *ngIf="movies == null || movies.length == 0">
+    <p>No movies :(</p>
+  </div>
+  <div class="card-deck-container"
+      *ngIf="movies != null && movies.length != 0"
+      fxLayout="row"
+      fxFlex.md="70"
+      mat-elevation-z4>
+    <div fxFlex *ngFor="let movie of movies" class="card-item">
+      <app-movie
+        (click)="onMovieClick(movie)"
+        [movie]="movie">
+      </app-movie>
+    </div>
   </div>
 </div>

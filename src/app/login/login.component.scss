@@ -1,5 +1,12 @@
 .mat-card {
+    margin: 100px auto;
+    max-width: 800px;
     padding: 50px;
+
+    .mat-card-title {
+        text-align: center;
+        margin-bottom: 50px;
+    }
 
     .mat-card-content form {
         display: flex;

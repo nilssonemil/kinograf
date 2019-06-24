@@ -1,17 +1,26 @@
-.card-deck-container {
+.container {
   background-color: #f5f5f5;
 
   padding: 50px;
 
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
+  .no-movies {
+    text-align: center;
+    p {
+      font-size: 1.6em;
+    }
+  }
+
+  .card-deck-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
 
 
-  .card-item {
-    margin: 11px;
-    max-width: 300px;
-    min-width: 300px;
+    .card-item {
+      margin: 11px;
+      max-width: 300px;
+      min-width: 300px;
+    }
   }
 }

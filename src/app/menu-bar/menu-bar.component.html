@@ -1,12 +1,12 @@
 <mat-toolbar color="primary">
   <div class="actions">
     <mat-icon *ngIf="isLoggedIn">person</mat-icon>
-      <mat-icon matPrefix>search</mat-icon>
-      <input matInput
-             appHideFocusedPlaceholder
-             placeholder="Search"
-             (keyup.enter)="search()"
-             [formControl]="searchInput"/>
+    <mat-icon matPrefix>search</mat-icon>
+    <input matInput
+          appHideFocusedPlaceholder
+          placeholder="Search"
+          (keyup.enter)="search()"
+          [formControl]="searchInput"/>
   </div>
 
   <div class="title">

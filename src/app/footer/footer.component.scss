@@ -1,0 +1,16 @@
+footer {
+    text-align: center;
+    margin: 60px;
+    font-style: italic;
+
+    p {
+        a {
+            text-decoration: none;
+            color: royalblue;
+
+            &:active, &:target {
+                color: royalblue;
+            }
+        }
+    }
+}

@@ -15,7 +15,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
-import { SearchTitleComponent } from './search-title/search-title.component';
 import { MovieComponent } from './movie/movie.component';
 import { ElevationDirective } from './elevation.directive';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
@@ -30,13 +29,14 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ProfileComponent } from './profile/profile.component';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { HideFocusedPlaceholderDirective } from './hide-focused-placeholder.directive';
+import { SearchInputComponent } from './search-input/search-input.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
     MovieListComponent,
-    SearchTitleComponent,
     MovieComponent,
     ElevationDirective,
     MovieDetailComponent,
@@ -48,6 +48,8 @@ import { HideFocusedPlaceholderDirective } from './hide-focused-placeholder.dire
     ProfileComponent,
     MenuBarComponent,
     HideFocusedPlaceholderDirective,
+    SearchInputComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
