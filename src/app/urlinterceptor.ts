@@ -19,7 +19,7 @@ export class URLInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     const [api, endpoint] = req.url.split('/')
     return next.handle(req.clone({
-      url: `${this.url.getURL(api) || api }/${endpoint}`
+      url: `${this.url.getURL(api) || api }${endpoint}`
     }))
   }
 }

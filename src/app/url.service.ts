@@ -8,7 +8,7 @@ export class URLService {
 
   private OMDB_API_KEY: string = "9a5b1258"
   private API_URLS = new Map([
-    ['kinograf', 'http://localhost:3000/api'],
+    ['kinograf', 'http://localhost:3000/api/'],
     ['omdb', `http://omdbapi.com/?apikey=${this.OMDB_API_KEY}&`],
   ])
 
