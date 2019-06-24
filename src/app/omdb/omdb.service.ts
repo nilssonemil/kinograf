@@ -13,29 +13,19 @@ import { OMDbResponse } from './omdb-response';
 })
 export class OMDbService {
 
-  private OMDB_API_KEY: string = "9a5b1258"
-  private OMDB_BASE_URL: string =
-    `http://omdbapi.com/?apikey=${this.OMDB_API_KEY}&`
-
   constructor(private http: HttpClient) { }
 
   searchTitle(title: String): Observable<Movie[]> {
     console.debug("OMDb search title:", title)
-    return this.http.get<OMDbResponse>(
-      this.OMDB_BASE_URL + "s=" + title).pipe(map(
+    return this.http.get<OMDbResponse>("omdb/s=" + title).pipe(map(
         (res: OMDbResponse) => (res.Search as OMDbMovie[]).map(
           (movie: OMDbMovie) => this.normalizeMovie(movie))))
   }
 
   searchId(id: String): Observable<Movie> {
     console.debug("OMDb search id:", id)
-    return this.http.get<OMDbMovie>(
-      this.OMDB_BASE_URL + "i=" + id + "&plot=full").pipe(
+    return this.http.get<OMDbMovie>("omdb/i=" + id + "&plot=full").pipe(
         map((movie: OMDbMovie) => this.normalizeMovie(movie as OMDbMovie)))
-  }
-
-  isOMDbRequest(req: HttpRequest<any>): boolean {
-    return req.url.startsWith(this.OMDB_BASE_URL)
   }
 
   normalizeMovie(omdbMovie: OMDbMovie): Movie {

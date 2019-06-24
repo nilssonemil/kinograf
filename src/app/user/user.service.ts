@@ -21,7 +21,7 @@ export class UserService {
   ) {}
 
   register(username: string, password: string): Observable<User> {
-    return this.http.post<RegisterResponse<User>>('/users', {
+    return this.http.post<RegisterResponse<User>>('kinograf/users', {
       username: username,
       password: password,
     }).pipe(map(

@@ -8,13 +8,14 @@ import {
 import { Observable } from 'rxjs';
 import { OMDbService } from '../omdb/omdb.service';
 import { AuthenticationService } from './authentication.service';
+import { URLService } from '../url.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
   constructor(
     private auth: AuthenticationService,
-    private omdb: OMDbService
+    private url: URLService
   ) {}
 
   intercept(
@@ -23,7 +24,7 @@ export class AuthInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
 
     // If the URL used is for OMDb we do not need any auth headers
-    if (this.omdb.isOMDbRequest(req))
+    if (this.url.isOMDbRequest(req))
       return next.handle(req)
 
     // If the request already has an Authorization haeder we do nothing

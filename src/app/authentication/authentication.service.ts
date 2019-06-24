@@ -20,7 +20,7 @@ export class AuthenticationService {
   }
 
   refreshToken(username: string, password: string): Observable<TokenResponse> {
-    return this.http.post<TokenResponse>('/token', null, {
+    return this.http.post<TokenResponse>('kinograf/token', null, {
       headers: new HttpHeaders().set(
         "Authorization", `Basic ${this.basicAuth(username, password)}`
       )
