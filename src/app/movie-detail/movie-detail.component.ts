@@ -24,6 +24,15 @@ export class MovieDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(paramMap => {
+      this.searchService.searchId(paramMap.get('id')).subscribe(
+        movie => this.movie = movie,
+        error => {
+          console.error(error)
+          this.location.back()
+        }
+      )
+    })
     this.searchService.searchId(
       this.route.snapshot.paramMap.get('id')).subscribe(
         movie => this.movie = movie,
@@ -35,7 +44,8 @@ export class MovieDetailComponent implements OnInit {
   }
 
   hasWebsite(): boolean {
-    return this.movie.website != null && this.movie.website != "N/A"
+    return this.movie.website != null &&
+           this.movie.website != "N/A"
   }
 
   back() {

@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    flex-direction: column;
+
+    .controls {
+
+    }
+
+    .content {
+        display: grid;
+        grid-template-columns: [first] 400px auto;
+
+        text-align: center;
+
+        .image-container {
+
+        }
+
+        .detail-container {
+
+            .mat-grid-list {
+                .mat-card {
+                    padding: 40px;
+                    .mat-card-title {
+                        text-align: left;
+                    }
+
+                    p.plot {
+                        text-align: left;
+                        font-size: 1.25em;
+                        font-style: italic;
+                        max-width: 500px;
+                    }
+                }
+            }
+
+        }
+    }
+}
