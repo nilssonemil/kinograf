@@ -4,19 +4,22 @@ import { TokenResponse } from './token-response';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
+const TOKEN_STORAGE = 'TOKEN'
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
+
   constructor(private http: HttpClient) { }
 
   getToken(): string {
-    return localStorage.getItem('TOKEN')
+    return localStorage.getItem(TOKEN_STORAGE)
   }
 
   setToken(token: string) {
-    localStorage.setItem('TOKEN', token)
+    localStorage.setItem(TOKEN_STORAGE, token)
   }
 
   refreshToken(username: string, password: string): Observable<TokenResponse> {
