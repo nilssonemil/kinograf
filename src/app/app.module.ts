@@ -32,6 +32,7 @@ import { HideFocusedPlaceholderDirective } from './hide-focused-placeholder.dire
 import { SearchInputComponent } from './search-input/search-input.component';
 import { FooterComponent } from './footer/footer.component';
 import { PlotCardComponent } from './plot-card/plot-card.component';
+import { MovieFactsComponent } from './movie-facts/movie-facts.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { PlotCardComponent } from './plot-card/plot-card.component';
     SearchInputComponent,
     FooterComponent,
     PlotCardComponent,
+    MovieFactsComponent,
   ],
   imports: [
     BrowserModule,
