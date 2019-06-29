@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { MatAutocompleteModule } from '@angular/material/autocomplete'
 import { MatListModule } from '@angular/material/list'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatGridListModule } from '@angular/material/grid-list'
@@ -33,6 +34,7 @@ import { SearchInputComponent } from './search-input/search-input.component';
 import { FooterComponent } from './footer/footer.component';
 import { PlotCardComponent } from './plot-card/plot-card.component';
 import { MovieFactsComponent } from './movie-facts/movie-facts.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,7 @@ import { MovieFactsComponent } from './movie-facts/movie-facts.component';
     FooterComponent,
     PlotCardComponent,
     MovieFactsComponent,
+    SearchResultsComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +64,7 @@ import { MovieFactsComponent } from './movie-facts/movie-facts.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    MatAutocompleteModule,
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,

@@ -1,11 +1,15 @@
 <div class="container">
   <mat-form-field color="primary" appearance="outline">
     <mat-label>Search</mat-label>
-    <input matInput
-          type="search"
-          [formControl]="searchInput"
-          (keyup.enter)="search()"
-          placeholder="Search"/>
+    <input matInput [matAutocomplete]="auto" type="search"
+      [formControl]="searchInput" (keyup.enter)="emitSearch()"
+      placeholder="Search" />
     <mat-icon matSuffix>search</mat-icon>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let search of filteredSearches | async"
+        [value]="search">
+        {{search}}
+      </mat-option>
+    </mat-autocomplete>
   </mat-form-field>
 </div>

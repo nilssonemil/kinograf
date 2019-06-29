@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpRequest } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { map, tap, switchMap } from 'rxjs/operators';
 import { Movie } from '../movie';
 import { OMDbMovie } from './omdb-movie';
 import { OMDbRating } from './omdb-rating';
 import { Rating } from '../rating';
 import { OMDbResponse } from './omdb-response';
+import { of } from 'zen-observable';
+import { SearchResult } from '../search/search-result';
 
 @Injectable({
   providedIn: 'root'
@@ -15,17 +17,36 @@ export class OMDbService {
 
   constructor(private http: HttpClient) { }
 
-  searchTitle(title: String): Observable<Movie[]> {
+  searchTitle(title: String): Observable<SearchResult> {
     console.debug("OMDb search title:", title)
-    return this.http.get<OMDbResponse>("omdb/s=" + title).pipe(map(
-        (res: OMDbResponse) => (res.Search as OMDbMovie[]).map(
-          (movie: OMDbMovie) => this.normalizeMovie(movie))))
+    return this.http.get<OMDbResponse>("omdb/s=" + title).pipe(
+      map(response => {
+        if (response.Response == "False") {
+          return {
+            query: title,
+            error: response.Error,
+            totalResults: 0,
+            movies: [],
+          } as SearchResult
+        } else {
+          return {
+            query: title,
+            error: response.Error,
+            totalResults: Number(response.totalResults),
+            movies: (response.Search as OMDbMovie[]).map(
+              (movie => this.normalizeMovie(movie))
+            ),
+          } as SearchResult
+        }
+      }
+      )
+    )
   }
 
   searchId(id: String): Observable<Movie> {
     console.debug("OMDb search id:", id)
     return this.http.get<OMDbMovie>("omdb/i=" + id + "&plot=full").pipe(
-        map((movie: OMDbMovie) => this.normalizeMovie(movie as OMDbMovie)))
+      map((movie: OMDbMovie) => this.normalizeMovie(movie as OMDbMovie)))
   }
 
   normalizeMovie(omdbMovie: OMDbMovie): Movie {

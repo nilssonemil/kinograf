@@ -1,7 +1,8 @@
 import { OMDbMovie } from './omdb-movie';
 
 export interface OMDbResponse {
-  Search: OMDbMovie | OMDbMovie[],
+  Search?: OMDbMovie | OMDbMovie[],
   totalResults: string,
-  Reponse: string,
+  Response: string,
+  Error?: string,
 }

@@ -1,8 +1,5 @@
 <div class="container">
-  <app-search-input
-    (searched)="search($event)">
+  <app-search-input (searched)="search($event)">
   </app-search-input>
-  <app-movie-list
-    [movies]="searchResults">
-  </app-movie-list>
+  <app-search-results [searchResult]="searchResult"></app-search-results>
 </div>

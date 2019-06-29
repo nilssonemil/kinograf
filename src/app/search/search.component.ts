@@ -3,6 +3,7 @@ import { SearchService } from '../search.service';
 import { Movie } from '../movie';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common'
+import { SearchResult } from './search-result'
 
 @Component({
   selector: 'app-search',
@@ -11,7 +12,7 @@ import { Location } from '@angular/common'
 })
 export class SearchComponent implements OnInit {
 
-  searchResults: Movie[]
+  searchResult: SearchResult
 
   constructor(
     private route: ActivatedRoute,
@@ -20,6 +21,14 @@ export class SearchComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    // Placeholder results to be displayed
+    this.searchResult = {
+      error: "Pending search...",
+      totalResults: 0,
+      movies: [],
+    } as SearchResult
+
     this.route.paramMap.subscribe(paramMap => {
       let query = paramMap.get('query')
       if (query != null) this.search(query)
@@ -28,11 +37,10 @@ export class SearchComponent implements OnInit {
 
   search(query: string) {
     this.searchService.searchTitle(query).subscribe(
-      data => {
-        this.searchResults = data
+      result => {
+        this.searchResult = result
         this.location.replaceState(`/search/${query}`)
       },
-      error => console.error(error)
     )
   }
 }
