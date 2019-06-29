@@ -5,7 +5,8 @@
     <p>Year: <span>{{ movie.year }}</span></p>
   </mat-card-content>
 
-  <img mat-card-image src="{{movie.poster}}" alt="..." />
+  <img mat-card-image src="{{movie.poster}}"
+    onerror="this.src='assets/placeholder-poster.svg'" alt="..." />
 
   <mat-card-actions>
     <button mat-button color="primary">

@@ -10,6 +10,7 @@ import { OMDbResponse } from './omdb-response';
 import { of } from 'zen-observable';
 import { SearchResult } from '../search/search-result';
 
+const PLACEHOLDER_POSTER = "assets/placeholder-poster.svg"
 @Injectable({
   providedIn: 'root'
 })
@@ -66,7 +67,7 @@ export class OMDbService {
       language: omdbMovie.Language,
       metascore: omdbMovie.Metascore,
       plot: omdbMovie.Plot,
-      poster: omdbMovie.Poster,
+      poster: this.normalizePoster(omdbMovie.Poster),
       production: omdbMovie.Production,
       rated: omdbMovie.Rated,
       ratings: ratings,
@@ -88,5 +89,9 @@ export class OMDbService {
       source: omdbRating.Source,
       value: omdbRating.Value
     } as Rating
+  }
+
+  normalizePoster(poster: string): string {
+    return poster == "N/A" ? PLACEHOLDER_POSTER : poster
   }
 }
