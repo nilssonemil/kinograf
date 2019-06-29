@@ -4,10 +4,22 @@
         text-align: left;
     }
 
+    p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
     p.plot {
         text-align: left;
         font-size: 1.25em;
         font-style: italic;
         max-width: 500px;
+    }
+
+    p.show {
+        white-space: pre-wrap;
+        overflow: visible;
+        height: auto;
     }
 }
