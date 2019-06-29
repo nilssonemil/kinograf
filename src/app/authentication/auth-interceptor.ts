@@ -6,7 +6,6 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { OMDbService } from '../omdb/omdb.service';
 import { AuthenticationService } from './authentication.service';
 import { URLService } from '../url.service';
 
@@ -16,11 +15,11 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(
     private auth: AuthenticationService,
     private url: URLService
-  ) {}
+  ) { }
 
   intercept(
-      req: HttpRequest<any>,
-      next: HttpHandler
+    req: HttpRequest<any>,
+    next: HttpHandler
   ): Observable<HttpEvent<any>> {
 
     // If the URL used is for OMDb we do not need any auth headers
