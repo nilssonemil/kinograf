@@ -1,6 +1,6 @@
 <div class="container">
   <div class="detail-container">
-    <p>
+    <p *ngIf="searchResult.query != null">
       Search for "{{ searchResult.query }}" generated
       {{ searchResult.totalResults }} hits.</p>
   </div>
