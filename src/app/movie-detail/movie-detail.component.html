@@ -1,39 +1,27 @@
 <div class="container">
   <div class="controls">
-    <button
-      (click)="back()"
-      mat-button
-      color="accent">
+    <button (click)="back()" mat-button color="accent">
       <mat-icon aria-hidden="false">arrow_back</mat-icon>
       back
     </button>
   </div>
   <div class="content">
-    <div class="image-container"
-        *ngIf="movie != null">
-      <img src="{{movie.poster}}"/>
+    <div class="image-container" *ngIf="movie != null">
+      <img src="{{movie.poster}}" />
     </div>
-    <div class="detail-container"
-        *ngIf="movie != null">
+    <div class="detail-container" *ngIf="movie != null">
       <h1>{{ movie.title }}</h1>
       <p>Starring: {{ movie.actors }}</p>
       <p>Directed by: {{ movie.director }}</p>
 
       <a *ngIf="hasWebsite()" href="{{movie.website}}">{{ movie.website }}</a>
 
-      <app-rating-list
-        [ratings]="movie.ratings"
-        [imdbID]="movie.imdb_id">
+      <app-rating-list [ratings]="movie.ratings" [imdbID]="movie.imdb_id">
       </app-rating-list>
 
       <mat-grid-list [cols]="2">
         <mat-grid-tile>
-          <mat-card>
-            <mat-card-title>Plot</mat-card-title>
-            <mat-card-content>
-              <p class="plot">{{ movie.plot }}</p>
-            </mat-card-content>
-          </mat-card>
+          <app-plot-card [plot]="movie.plot"></app-plot-card>
         </mat-grid-tile>
         <mat-grid-tile>
           <mat-list>

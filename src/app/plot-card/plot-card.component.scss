@@ -1,0 +1,13 @@
+.mat-card {
+    padding: 40px;
+    .mat-card-title {
+        text-align: left;
+    }
+
+    p.plot {
+        text-align: left;
+        font-size: 1.25em;
+        font-style: italic;
+        max-width: 500px;
+    }
+}

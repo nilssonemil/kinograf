@@ -31,6 +31,7 @@ import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { HideFocusedPlaceholderDirective } from './hide-focused-placeholder.directive';
 import { SearchInputComponent } from './search-input/search-input.component';
 import { FooterComponent } from './footer/footer.component';
+import { PlotCardComponent } from './plot-card/plot-card.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { FooterComponent } from './footer/footer.component';
     HideFocusedPlaceholderDirective,
     SearchInputComponent,
     FooterComponent,
+    PlotCardComponent,
   ],
   imports: [
     BrowserModule,
