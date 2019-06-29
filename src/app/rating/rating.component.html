@@ -1,3 +1,5 @@
-<p>{{ rating.source }}: {{ rating.value }}
+<div>
+  <img class="icon" src="{{iconPath}}" alt="{{rating.source}}" />
+  <p>{{ rating.value }}</p>
   <a *ngIf="imdbID != null" href="{{imdb.getIMDbURL(imdbID)}}">(link)</a>
-</p>
+</div>
